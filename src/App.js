@@ -1,7 +1,10 @@
 
+import { NumberedList } from './NumberedList';
 import { LargePersonListItem } from './people/LargePersonListItem';
 import { SmallPersonListItem } from './people/SmallPersonListItem';
+import { SmallProductListItem } from './products/SmallProductListItem';
 import { RegularList } from './RegularLists';
+import { LargeProductListItem } from './products/LargeProductListItem';
 import { SplitScreen } from './SplitScreen';
 
 const people = [
@@ -34,24 +37,26 @@ const products = [
   },
   {
     name: "Flatron TV",
-    price: "120",
+    price: "$120",
     description: "State of the art",
     rating: 4.2
  },
    {
     name: "Running Shoes",
-    age: 21,
+    price: "$300",
     hairColor: "White",
     hobbies: "Air Jordans"
   }
 ]
 
 
-// Displaying reusable list and list items
+// Displaying reusable unordered list and numbered list items
 function App() {
   return (
    <>
     <RegularList items = {people} resourceName="person" itemComponent={SmallPersonListItem} />
+    <NumberedList items = {products} resourceName="product" itemComponent={SmallProductListItem} />
+    <NumberedList items={products} resourceName="product" itemComponent={LargeProductListItem} />
     <RegularList items = {people} resourceName="person" itemComponent={LargePersonListItem} />
    </>
   );
