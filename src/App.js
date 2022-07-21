@@ -6,6 +6,7 @@ import { SmallProductListItem } from './products/SmallProductListItem';
 import { RegularList } from './RegularLists';
 import { LargeProductListItem } from './products/LargeProductListItem';
 import { SplitScreen } from './SplitScreen';
+import { Modal } from './Modal';
 
 const people = [
   {
@@ -50,14 +51,13 @@ const products = [
 ]
 
 
-// Displaying reusable unordered list and numbered list items
+// Displaying modal with reusable list item
 function App() {
   return (
    <>
-    <RegularList items = {people} resourceName="person" itemComponent={SmallPersonListItem} />
-    <NumberedList items = {products} resourceName="product" itemComponent={SmallProductListItem} />
-    <NumberedList items={products} resourceName="product" itemComponent={LargeProductListItem} />
-    <RegularList items = {people} resourceName="person" itemComponent={LargePersonListItem} />
+    <Modal>
+      <LargeProductListItem product={products[0]} />
+    </Modal>
    </>
   );
 }
